@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const configCros = require('./config/configCros');
+const configCors = require('./config/configCors');
 const cookieParser = require('cookie-parser');
 const authRouter = require('./routers/authRouter');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 require('dotenv').config();
 
 const app = express();
-app.use(cors(configCros));
+app.use(cors(configCors));
 app.use(cookieParser());
 app.use(express.json());
 app.use('/auth', authRouter);

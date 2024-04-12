@@ -6,17 +6,18 @@ const jwtServices = require('../services/jwtService');
 
 class AuthServices {
     logUp = async (body) => {
-        const { userEmail, userName, userPassword } = body;
+        const { 'user-name': userName, 'user-email': userEmail, 'user-password': userPassword } = body;
+
         const userEmailExists = await userModel.findOne({ userEmail });
         const userNameExists = await userModel.findOne({ userName });
         const errorLog = [];
 
         if (userEmailExists) {
-            errorLog.push({ name: 'userEmailExists', message: 'mail is already registered.' });
+            errorLog.push({ name: 'userEmailExists', field: 'user-email', message: 'mail is already registered.' });
         }
 
         if (userNameExists) {
-            errorLog.push({ name: 'userNameExists', message: 'user name already exists.' });
+            errorLog.push({ name: 'userNameExists', field: 'user-name', message: 'user name already exists.' });
         }
 
         if (errorLog.length > 0) {
