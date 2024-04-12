@@ -8,7 +8,7 @@ const errorMiddleware = require('./middlewares/errorMiddleware');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors(configCros));
 app.use(cookieParser());
 app.use(express.json());
 app.use('/auth', authRouter);
