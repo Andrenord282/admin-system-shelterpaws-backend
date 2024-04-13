@@ -1,4 +1,8 @@
-const configCorsList = ['http://localhost:3000', process.env.URL_APP];
+const configCorsList = [
+    'http://localhost:3000',
+    'https://admin-system-shelterpaws-client.vercel.app',
+    process.env.URL_APP,
+];
 
 const configCors = {
     origin: (origin, callback) => {
